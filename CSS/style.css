@@ -81,15 +81,15 @@ body{
     }
 
     #sale-wrapper {
-        font-size: 1.2rem;
-        padding: 0.5rem;
+        font-size: 1rem;
+        padding: 0.2rem;
     }
 
     #sale-wrapper table {
-        border-spacing: 0.5rem;  
+        border-spacing: 0.3rem;  
     }
 
     .searchable {
-        padding: 1rem;           
+        padding: 0.5rem;           
     }
 }
