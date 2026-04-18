@@ -2,10 +2,51 @@ body{
     margin: 0;
 }
 
-#header{
-    display: block;
+#navbar{
+    display: flexbox;
     margin-top: 0;
     justify-items: center;
     background-color: black;
     color: white;
+    padding: 1rem;
+    font-size: 2rem;
+    size: 2rem;
+}
+#navbar input{
+    margin-left: 10rem;
+    padding-right: 80rem;
+    font-size: 2rem;
+}
+#navbar a{
+    color: white;
+    text-decoration: none;
+}
+#navbar a:hover{
+    color: rgb(181, 182, 182);
+}
+
+#sale-wrapper{
+    display: flexbox;
+    margin-top: 0;
+    justify-items: center;
+    padding: 1rem;
+    font-size: 2rem;
+    size: 2rem;
+}
+#sale-wrapper table{
+    border-spacing: 5rem;
+}
+.searchable{
+    padding: 5rem;
+    border: 0.2rem solid black;
+    min-width: 3rem;
+    min-height: 3rem;
+}
+.searchable:hover{
+    font-weight: bold;
+    cursor: pointer;
+    background-color: beige;
+}
+.hidden{
+    display: none;
 }

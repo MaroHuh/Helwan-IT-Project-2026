@@ -8,6 +8,35 @@
     <title>Document</title>
   </head>
   <body>
-    <header id="header"><h1>Test</h1></header>
+    <nav id="navbar">
+      <a href="https://marohuh.github.io/Helwan-IT-Project-2026/">Home</a>
+      <input type="text" id="search" placeholder="Search..." />
+    </nav>
+    <div id="sale-wrapper">
+      <table>
+        <tr>
+          <td class="searchable">Potato<br /><br /><span>1.99$</span></td>
+          <td class="searchable">Tomato<br /><br /><span>1.99$</span></td>
+          <td class="searchable">Cucumber<br /><br /><span>1.99$</span></td>
+          <td class="searchable">Ice Cream<br /><br /><span> 1.99$</span></td>
+        </tr>
+      </table>
+    </div>
+    <script>
+      const input = document.getElementById("search");
+      const items = document.querySelectorAll(".searchable");
+      input.addEventListener("input", function () {
+        const query = input.value.toLowerCase();
+
+        items.forEach(function (item) {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(query)) {
+            item.classList.remove("hidden");
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
