@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+}
+
+#header{
+    display: block;
+    margin-top: 0;
+    justify-items: center;
+    background-color: black;
+    color: white;
+}
