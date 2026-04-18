@@ -11,6 +11,8 @@
     <nav id="navbar">
       <a href="https://marohuh.github.io/Helwan-IT-Project-2026/">Home</a>
       <input type="text" id="search" placeholder="Search..." />
+      <a href="#">Sign in</a>
+      <span onclick="changeTheme()">Theme</span>
     </nav>
     <div id="sale-wrapper">
       <table>
@@ -25,6 +27,7 @@
     <script>
       const input = document.getElementById("search");
       const items = document.querySelectorAll(".searchable");
+      const body = document.body;
       input.addEventListener("input", function () {
         const query = input.value.toLowerCase();
 
@@ -37,6 +40,9 @@
           }
         });
       });
+      function changeTheme() {
+        body.classList.toggle("dark");
+      }
     </script>
   </body>
 </html>

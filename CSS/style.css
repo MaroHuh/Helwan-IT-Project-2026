@@ -1,7 +1,13 @@
 body{
     margin: 0;
 }
-
+.dark{
+    background-color: black;
+    color: white;
+}
+.dark .searchable{
+    border: 0.2rem solid white;
+}
 #navbar{
     display: flexbox;
     margin-top: 0;
@@ -17,12 +23,14 @@ body{
     padding-right: 80rem;
     font-size: 2rem;
 }
-#navbar a{
+#navbar a,#navbar span{
     color: white;
+    margin-left: 2rem;
     text-decoration: none;
 }
-#navbar a:hover{
+#navbar a:hover,#navbar span:hover{
     color: rgb(181, 182, 182);
+    cursor: pointer;
 }
 
 #sale-wrapper{
