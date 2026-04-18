@@ -8,6 +8,9 @@ body{
 .dark .searchable{
     border: 0.2rem solid white;
 }
+.dark .searchable:hover{
+    background-color: rgb(129, 134, 138);
+}
 #navbar{
     display: flexbox;
     margin-top: 0;
@@ -19,6 +22,7 @@ body{
 #navbar input{
     padding-right: 5rem;
     font-size: 2rem;
+    margin-left: 60rem;
 }
 #navbar a,#navbar span{
     color: white;
