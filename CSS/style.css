@@ -16,11 +16,10 @@ body{
     color: white;
     padding: 1rem;
     font-size: 2rem;
-    size: 2rem;
 }
 #navbar input{
     margin-left: 10rem;
-    padding-right: 50rem;
+    padding-right: 20rem;
     font-size: 2rem;
 }
 #navbar a,#navbar span{
