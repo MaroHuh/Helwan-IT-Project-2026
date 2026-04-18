@@ -11,14 +11,12 @@ body{
 #navbar{
     display: flexbox;
     margin-top: 0;
-    justify-items: center;
     background-color: black;
     color: white;
     padding: 1rem;
     font-size: 2rem;
 }
 #navbar input{
-    margin-left: 10rem;
     padding-right: 5rem;
     font-size: 2rem;
 }
@@ -26,6 +24,7 @@ body{
     color: white;
     margin-left: 2rem;
     text-decoration: none;
+    padding-right: 1rem;
 }
 #navbar a:hover,#navbar span:hover{
     color: rgb(181, 182, 182);
