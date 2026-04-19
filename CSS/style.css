@@ -53,7 +53,6 @@ body{
     min-height: 3rem;
 }
 .searchable:hover{
-    font-weight: bold;
     cursor: pointer;
     background-color: beige;
 }
