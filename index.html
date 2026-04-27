@@ -1,31 +1,118 @@
 <!doctype html>
-<!--Home Page-->
+<!--Products Page-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./CSS/style.css" />
-    <title>Document</title>
+    <title>Shop</title>
   </head>
   <body>
     <nav id="navbar">
       <a href="https://marohuh.github.io/Helwan-IT-Project-2026/">Home</a>
-      <input type="text" id="search" placeholder="Search..." />
       <a href="https://marohuh.github.io/Helwan-IT-Project-2026/Page-1"
         >Sign in</a
       >
       <span onclick="changeTheme()">Theme</span>
     </nav>
-    <div id="sale-wrapper">
-      <table>
-        <tr>
-          <td class="searchable">Potato<br /><br /><span>1.99$</span></td>
-          <td class="searchable">Tomato<br /><br /><span>1.99$</span></td>
-          <td class="searchable">Cucumber<br /><br /><span>1.99$</span></td>
-          <td class="searchable">Ice Cream<br /><br /><span> 1.99$</span></td>
-        </tr>
-      </table>
+
+    <div id="main-products-wrapper">
+      <input type="text" id="search-bar" placeholder="Search products..." />
+
+      <main id="products-wrapper">
+        <div id="products-grid" class="view-grid"></div>
+
+        <p id="no-results" class="hidden">No products found.</p>
+
+        <div id="page-buttons">
+          <button id="prev-btn" onclick="changePage(-1)">&#8592; Prev</button>
+          <span id="page-indicator"></span>
+          <button id="next-btn" onclick="changePage(1)">Next &#8594;</button>
+        </div>
+      </main>
     </div>
-    <script src="Script/script.js"></script>
+
+    <script>
+      const grid = document.getElementById("products-grid");
+      const body = document.body;
+      const searchBar = document.getElementById("search-bar");
+      const pageIndicator = document.getElementById("page-indicator");
+      const prevBtn = document.getElementById("prev-btn");
+      const nextBtn = document.getElementById("next-btn");
+      const noResults = document.getElementById("no-results");
+
+      const PRODUCTS = [
+        { id: 1, name: "Potato", price: 1.99, category: "Vegetables" },
+        { id: 2, name: "Tomato", price: 1.49, category: "Vegetables" },
+        { id: 3, name: "Cucumber", price: 0.99, category: "Vegetables" },
+        { id: 4, name: "Carrot", price: 0.79, category: "Vegetables" },
+        { id: 5, name: "Broccoli", price: 1.29, category: "Vegetables" },
+        { id: 6, name: "Banana", price: 0.59, category: "Fruits" },
+        { id: 7, name: "Apple", price: 0.89, category: "Fruits" },
+        { id: 8, name: "Orange", price: 1.19, category: "Fruits" },
+        { id: 9, name: "Milk", price: 1.79, category: "Dairy" },
+        { id: 10, name: "Cheese", price: 3.49, category: "Dairy" },
+        { id: 11, name: "Ice Cream", price: 3.99, category: "Frozen" },
+        { id: 12, name: "Bread", price: 1.99, category: "Bakery" },
+      ];
+
+      const productsPerPage = 6;
+      let currentPage = 1;
+      let filteredData = [...PRODUCTS];
+
+      function render() {
+        const totalPages = Math.max(
+          1,
+          Math.ceil(filteredData.length / productsPerPage),
+        );
+        if (currentPage > totalPages) currentPage = totalPages;
+
+        const start = (currentPage - 1) * productsPerPage;
+        const slice = filteredData.slice(start, start + productsPerPage);
+
+        grid.innerHTML = "";
+        noResults.classList.toggle("hidden", filteredData.length > 0);
+
+        slice.forEach((p, i) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.style.animationDelay = `${i * 50}ms`;
+          card.innerHTML = `
+            <div class="card-info">
+              <div class="card-cat">${p.category}</div>
+              <div class="card-name">${p.name}</div>
+              <div class="card-price">$${p.price.toFixed(2)}</div>
+            </div>`;
+          grid.appendChild(card);
+        });
+
+        pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
+      }
+
+      function changePage(dir) {
+        const totalPages = Math.ceil(filteredData.length / productsPerPage);
+        currentPage = Math.min(Math.max(1, currentPage + dir), totalPages);
+        render();
+      }
+
+      searchBar.addEventListener("input", function () {
+        const q = this.value.toLowerCase().trim();
+        filteredData = PRODUCTS.filter(
+          (p) =>
+            p.name.toLowerCase().includes(q) ||
+            p.category.toLowerCase().includes(q),
+        );
+        currentPage = 1;
+        render();
+      });
+
+      function changeTheme() {
+        body.classList.toggle("dark");
+      }
+
+      render();
+    </script>
   </body>
 </html>
