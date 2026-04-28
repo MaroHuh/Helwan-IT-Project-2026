@@ -9,10 +9,9 @@
   --accent-h: #0c140f;
   --nav:      #1a1a1a;
 }
-
-.dark {
+:root.dark {
   --bg:      #141414;
-  --accent: #e6e4e4;
+  --accent: #f4f4f4;
   --surface: #1e1e1e;
   --border:  #333;
   --text:    #f0f0f0;
@@ -219,9 +218,6 @@ body {
   text-align: center;
 }
 
-.dark .card-info {
-  border-color: var(--border);
-}
 
 .hidden { display: none; }
 
