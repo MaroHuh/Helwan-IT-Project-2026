@@ -125,9 +125,6 @@
         render(); //calling the render function to update the changes to the cards
       });
 
-      function changeTheme() {
-        document.documentElement.classList.toggle("dark");
-      }
       function gridToggle() {
         grid.classList.add("view-grid");
         grid.classList.remove("view-list");
@@ -141,6 +138,23 @@
         listBtn.disabled = 1;
         gridBtn.disabled = 0;
         render();
+      }
+
+      function changeTheme() {
+        document.documentElement.classList.toggle("dark");
+        let darkMode;
+        if (document.documentElement.classList.contains("dark")) {
+          darkMode = "true";
+        } else {
+          darkMode = "false";
+        }
+        localStorage.setItem("darkMode", darkMode);
+      }
+      const darkMode = localStorage.getItem("darkMode");
+      if (darkMode === "true") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
       }
 
       render();
