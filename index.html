@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <title>Shop</title>
+    <script>
+      const darkMode = localStorage.getItem("darkMode");
+      if (darkMode === "true") {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
   <body>
     <nav id="navbar">
@@ -142,21 +148,12 @@
 
       function changeTheme() {
         document.documentElement.classList.toggle("dark");
-        let darkMode;
         if (document.documentElement.classList.contains("dark")) {
-          darkMode = "true";
+          localStorage.setItem("darkMode", "true");
         } else {
-          darkMode = "false";
+          localStorage.setItem("darkMode", "false");
         }
-        localStorage.setItem("darkMode", darkMode);
       }
-      const darkMode = localStorage.getItem("darkMode");
-      if (darkMode === "true") {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-
       render();
     </script>
   </body>
