@@ -5,13 +5,14 @@
   --border:   #ddd;
   --text:     #1a1a1a;
   --muted:    #666;
-  --accent:   #18231d;
+  --accent:   #181818;
   --accent-h: #0c140f;
   --nav:      #1a1a1a;
 }
 
 .dark {
   --bg:      #141414;
+  --accent: #e6e4e4;
   --surface: #1e1e1e;
   --border:  #333;
   --text:    #f0f0f0;
@@ -64,8 +65,7 @@ body {
 }
 
 #search-bar {
-  display: block;
-  width: 100%;
+  width: 80%;
   padding: 0.65rem 1rem;
   font-size: 1rem;
   font-family: Arial, sans-serif;
@@ -76,6 +76,30 @@ body {
   margin-bottom: 1.5rem;
   outline: none;
   transition: border-color 0.15s;
+}
+.list-grid-toggle{
+  margin: 2px;
+}
+#list-toggle, #grid-toggle{
+  padding: 0.5rem 1.2rem;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+#list-toggle:hover:not(:disabled), #grid-toggle:hover:not(:disabled){
+  cursor: pointer;
+  background-color: var(--accent);
+  border-color: var(--accent-h);
+  color: var(--surface);
+}
+#list-toggle:disabled, #grid-toggle:disabled{
+  cursor:auto;
+  opacity: 0.5;
 }
 
 #search-bar:focus {
@@ -179,12 +203,12 @@ body {
 #page-buttons button:hover:not(:disabled) {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--surface);
 }
 
 #page-buttons button:disabled {
   opacity: 0.35;
-  cursor: not-allowed;
+  cursor: auto;
 }
 
 #page-indicator {

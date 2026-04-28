@@ -19,7 +19,17 @@
 
     <div id="main-products-wrapper">
       <input type="text" id="search-bar" placeholder="Search products..." />
-
+      <button class="list-grid-toggle" id="list-toggle" onclick="listToggle()">
+        List
+      </button>
+      <button
+        class="list-grid-toggle"
+        id="grid-toggle"
+        disabled
+        onclick="gridToggle()"
+      >
+        Grid
+      </button>
       <main id="products-wrapper">
         <div id="products-grid" class="view-grid">
           <!-- products appended with javascript-->
@@ -37,6 +47,8 @@
 
     <script>
       const grid = document.getElementById("products-grid");
+      const gridBtn = document.getElementById("grid-toggle");
+      const listBtn = document.getElementById("list-toggle");
       const body = document.body;
       const searchBar = document.getElementById("search-bar");
       const pageIndicator = document.getElementById("page-indicator");
@@ -80,12 +92,12 @@
         slice.forEach((p, i) => {
           const card = document.createElement("div");
           card.className = "product-card";
-          card.style.animationDelay = `${i * 50}ms`; // using the index * 50 so they dont all fade in at once
+          card.style.animationDelay = `${i * 100}ms`; // using the index * 100 so they dont all fade in at once
           card.innerHTML = `
             <div class="card-info">
               <div class="card-cat">${p.category}</div>
               <div class="card-name">${p.name}</div>
-              <div class="card-price">$${p.price.toFixed(2)}</div>
+              <div class="card-price">$${p.price}</div>
             </div>`;
           grid.appendChild(card); //add each card as a child to the grid
         });
@@ -115,6 +127,20 @@
 
       function changeTheme() {
         body.classList.toggle("dark");
+      }
+      function gridToggle() {
+        grid.classList.add("view-grid");
+        grid.classList.remove("view-list");
+        gridBtn.disabled = 1;
+        listBtn.disabled = 0;
+        render();
+      }
+      function listToggle() {
+        grid.classList.add("view-list");
+        grid.classList.remove("view-grid");
+        listBtn.disabled = 1;
+        gridBtn.disabled = 0;
+        render();
       }
 
       render();
