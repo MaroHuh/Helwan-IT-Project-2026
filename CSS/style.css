@@ -235,6 +235,11 @@ body {
   .view-grid { grid-template-columns: repeat(2, 1fr); }
   #navbar { font-size: 0.9rem; }
   #search-bar{width: 50%;}
+  .view-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+} 
 }
 
 @media (max-width: 420px) {
