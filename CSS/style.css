@@ -231,17 +231,9 @@ body {
 }
 
 @media (max-width: 700px) {
-  #main-products-wrapper { width: 95%; padding: 1rem; }
-  .view-grid { grid-template-columns: repeat(2, 1fr); }
+  #main-products-wrapper { width: 95%; padding: 0.5rem; }
+  .view-grid { grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem; }
   #navbar { font-size: 0.9rem; }
   #search-bar{width: 50%;}
-  .view-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-} 
-}
-
-@media (max-width: 420px) {
-  .view-grid { grid-template-columns: 1fr; }
 }
