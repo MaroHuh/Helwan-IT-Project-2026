@@ -234,6 +234,7 @@ body {
   #main-products-wrapper { width: 95%; padding: 1rem; }
   .view-grid { grid-template-columns: repeat(2, 1fr); }
   #navbar { font-size: 0.9rem; }
+  #search-bar{width: 50%;}
 }
 
 @media (max-width: 420px) {
