@@ -9,26 +9,22 @@ const nextBtn = document.getElementById("next-btn");
 const noResults = document.getElementById("no-results");
 
 const PRODUCTS = [
-  { id: "Blue Hoodie",      cat: "Clothing",       price: 100,  img: "../images/hoodie-blue.png" },
-  { id: "Black T-Shirt",    cat: "Clothing",       price: 30,   img: "../images/tshirt-black.png" },
-  { id: "Denim Jacket",     cat: "Clothing",       price: 150,  img: "../images/jacket-denim.png" },
-  { id: "Cargo Shorts",     cat: "Clothing",       price: 50,   img: "../images/shorts-cargo.png" },
-
-  { id: "Running Shoes",    cat: "Footwear",       price: 120,  img: "../images/shoes-running.png" },
-  { id: "White Sneakers",   cat: "Footwear",       price: 90,   img: "../images/sneakers-white.png" },
-  { id: "Black Boots",      cat: "Footwear",       price: 180,  img: "../images/boots-black.png" },
-  { id: "Sandals",          cat: "Footwear",       price: 40,   img: "../images/sandals.png" },
-
-  { id: "Baseball Cap",     cat: "Accessories",    price: 25,   img: "../images/cap-baseball.png" },
-  { id: "Sunglasses",       cat: "Accessories",    price: 45,   img: "../images/sunglasses.png" },
-  { id: "Black Backpack",  cat: "Accessories",    price: 75,   img: "../images/backpack-black.png" },
-  { id: "Watch",            cat: "Accessories",    price: 200,  img: "../images/watch.png" },
-
-  { id: "Wireless Earbuds", cat: "Electronics",    price: 80,   img: "../images/earbuds.png" },
-  { id: "Phone Stand",      cat: "Electronics",    price: 22,   img: "../images/phone-stand.png" },
-  { id: "Webcam",           cat: "Electronics",    price: 95,   img: "../images/webcam.png" },
-
-  { id: "Notebook",         cat: "Stationery",     price: 8,    img: "../images/notebook.png" },
+  { id: "Blue Hoodie",     cat: "Clothing",     price: 100, img: "/project/images/products/hoodie-blue.png" },
+  { id: "Black T-Shirt",   cat: "Clothing",     price: 30,  img: "/project/images/products/tshirt-black.png" },
+  { id: "Denim Jacket",    cat: "Clothing",     price: 150, img: "/project/images/products/jacket-denim.png" },
+  { id: "Cargo Shorts",    cat: "Clothing",     price: 50,  img: "/project/images/products/shorts-cargo.png" },
+  { id: "Running Shoes",   cat: "Footwear",     price: 120, img: "/project/images/products/shoes-running.png" },
+  { id: "White Sneakers",  cat: "Footwear",     price: 90,  img: "/project/images/products/sneakers-white.png" },
+  { id: "Black Boots",     cat: "Footwear",     price: 180, img: "/project/images/products/boots-black.png" },
+  { id: "Sandals",         cat: "Footwear",     price: 40,  img: "/project/images/products/sandals.png" },
+  { id: "Baseball Cap",    cat: "Accessories",  price: 25,  img: "/project/images/products/cap-baseball.png" },
+  { id: "Sunglasses",      cat: "Accessories",  price: 45,  img: "/project/images/products/sunglasses.png" },
+  { id: "Black Backpack",  cat: "Accessories",  price: 75,  img: "/project/images/products/backpack-black.png" },
+  { id: "Watch",           cat: "Accessories",  price: 200, img: "/project/images/products/watch.png" },
+  { id: "Wireless Earbuds",cat: "Electronics",  price: 80,  img: "/project/images/products/earbuds.png" },
+  { id: "Phone Stand",     cat: "Electronics",  price: 22,  img: "/project/images/products/phone-stand.png" },
+  { id: "Webcam",          cat: "Electronics",  price: 95,  img: "/project/images/products/webcam.png" },
+  { id: "Notebook",        cat: "Stationery",   price: 8,   img: "/project/images/products/notebook.png" },
 ];
 
 const productsPerPage = 6;
