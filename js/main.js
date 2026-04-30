@@ -1,3 +1,11 @@
+if (!localStorage.getItem("cart")) {
+  localStorage.setItem("cart", "[]");
+}
+if (!localStorage.getItem("wishlist")) {
+  localStorage.setItem("wishlist", "[]");
+}
+
+
 document.getElementById("navbar").innerHTML = `
 <nav class="navbar">
   <h2>MyStore</h2>
