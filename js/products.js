@@ -33,6 +33,8 @@ const PRODUCTS = [
 const productsPerPage = 6;
 let currentPage = 1;
 let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
+const wishlist = JSON.parse(localStorage.getItem("wishlist"))
+const cart = JSON.parse(localStorage.getItem("cart"))
 window.PRODUCTS = PRODUCTS;
 window.filteredData = filteredData;
 window.render = render;
@@ -68,18 +70,20 @@ function render() {
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
     const wishlistBtn = card.querySelector('.wishlist-btn');
     addToCartBtn.onclick = () =>{ // this should update the cart in the localstorage and add this product to it
-      const cart = JSON.parse(localStorage.getItem("cart"));
       cart.push(p);
-      localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart)); // save the new item in cart in the local storage
       addToCartBtn.innerHTML = `Added!`
       addToCartBtn.disabled = 1;
     };
     wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
-      const wishlist = JSON.parse(localStorage.getItem("wishlist"));
-      wishlist.push(p);
-      localStorage.setItem("wishlist", JSON.stringify(wishlist));
-      wishlistBtn.innerHTML = `Wishlisted!`
-      wishlistBtn.disabled = 1;
+      const inWishList = wishlist.some(item => item.id === p.id);
+      if(!inWishList){
+        wishlist.push(p);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
+        wishlistBtn.innerHTML = `Wishlisted!`
+        wishlistBtn.disabled = 1;
+      }
+      
     };
     image.onclick = () => {                                          
       localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page by abdo 3mad
