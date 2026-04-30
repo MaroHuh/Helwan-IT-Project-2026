@@ -11,10 +11,10 @@ document.getElementById("navbar").innerHTML = `
   <h2>MyStore</h2>
   <div>
    <ul>
-                    <li><a href="/pages/home.html">Home</a></li>
-                    <li><a href="/pages/shop.html">Shop</a></li>
-                    <li><a href="/pages/cart.html">Cart</a></li>
-                    <li><a href="/pages/login.html">Login</a></li>
+                    <li><a href="../pages/home.html">Home</a></li>
+                    <li><a href="../pages/shop.html">Shop</a></li>
+                    <li><a href="../pages/cart.html">Cart</a></li>
+                    <li><a href="../pages/login.html">Login</a></li>
                     <li><span id="wishlist-count">❤️0</span></li>
                     <li><button onclick="toggleTheme()">🌙</button></li>
                 </ul>

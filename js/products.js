@@ -72,7 +72,7 @@ function render() {
     addToCartBtn.onclick = () =>{ // this should update the cart in the localstorage and add this product to it
       cart.push(p);
       localStorage.setItem("cart", JSON.stringify(cart)); // save the new item in cart in the local storage
-      addToCartBtn.innerHTML = `Added!`
+      addToCartBtn.innerHTML = `Added to Cart!`
       addToCartBtn.disabled = 1;
     };
     wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
@@ -83,7 +83,7 @@ function render() {
     };
 
     if (cart.some(item => item.id === p.id)) { //making sure u cant add items to cart/wishlist twice
-      addToCartBtn.innerHTML = `In cart!`;
+      addToCartBtn.innerHTML = `In Cart!`;
       addToCartBtn.disabled = 1;
     }
     if (wishlist.some(item => item.id === p.id)) {
