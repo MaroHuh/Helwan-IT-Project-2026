@@ -76,15 +76,20 @@ function render() {
       addToCartBtn.disabled = 1;
     };
     wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
-      const inWishList = wishlist.some(item => item.id === p.id);
-      if(!inWishList){
-        wishlist.push(p);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
-        wishlistBtn.innerHTML = `Wishlisted!`
-        wishlistBtn.disabled = 1;
-      }
-      
+      wishlist.push(p);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
+      wishlistBtn.innerHTML = `Wishlisted!`
+      wishlistBtn.disabled = 1;
     };
+
+    if (cart.some(item => item.id === p.id)) { //making sure u cant add items to cart/wishlist twice
+      addToCartBtn.innerHTML = `In cart!`;
+      addToCartBtn.disabled = 1;
+    }
+    if (wishlist.some(item => item.id === p.id)) {
+      wishlistBtn.innerHTML = `In Wishlist!`;
+      wishlistBtn.disabled = 1;
+    }
     image.onclick = () => {                                          
       localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page by abdo 3mad
       window.location.href = "product-details.html";
