@@ -33,7 +33,6 @@ const PRODUCTS = [
 const productsPerPage = 6;
 let currentPage = 1;
 let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
-
 window.PRODUCTS = PRODUCTS;
 window.filteredData = filteredData;
 window.render = render;
@@ -68,14 +67,18 @@ function render() {
     const image = card.querySelector('.card-img');
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
     const wishlistBtn = card.querySelector('.wishlist-btn');
-    addToCartBtn.onclick = () =>{ // only the style related js
+    addToCartBtn.onclick = () =>{ // this should update the cart in the localstorage and add this product to it
+      const cart = JSON.parse(localStorage.getItem("cart"));
+      cart.push(p);
+      localStorage.setItem("cart", JSON.stringify(cart));
       addToCartBtn.innerHTML = `Added!`
-      addToCartBtn.style.backgroundColor = "lime";
       addToCartBtn.disabled = 1;
     };
-    wishlistBtn.onclick = () =>{ // only the style related js
+    wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
+      const wishlist = JSON.parse(localStorage.getItem("wishlist"));
+      wishlist.push(p);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
       wishlistBtn.innerHTML = `Wishlisted!`
-      wishlistBtn.style.backgroundColor = "lime";
       wishlistBtn.disabled = 1;
     };
     image.onclick = () => {                                          

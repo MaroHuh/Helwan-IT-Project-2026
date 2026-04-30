@@ -203,8 +203,11 @@
       .wishlist-btn:disabled {
         opacity: 0.5;
         cursor: auto;
+        background-color: lime;
       }
-
+      .btn-after {
+        background-color: rgb(143, 28, 28);
+      }
       #no-results {
         text-align: center;
         padding: 2rem;
@@ -342,7 +345,9 @@
           </ul>
         </div>
 
-        <div id="products-grid" class="view-grid"></div>
+        <div id="products-grid" class="view-grid">
+          <!--products added with js-->
+        </div>
       </div>
 
       <p id="no-results" class="hidden">No products found.</p>

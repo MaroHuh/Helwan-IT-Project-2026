@@ -1,5 +1,6 @@
 const searchBar = document.getElementById("search-bar");
 
+
 searchBar.addEventListener("input", function () {
   const q = this.value.toLowerCase().trim();
   filteredData = PRODUCTS.filter(
