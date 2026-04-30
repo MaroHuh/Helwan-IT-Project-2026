@@ -1,7 +1,6 @@
 const grid = document.getElementById("products-grid");
 const gridBtn = document.getElementById("grid-btn");
 const listBtn = document.getElementById("list-btn");
-const root = document.documentElement;
 const pageIndicator = document.getElementById("page-indicator");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
