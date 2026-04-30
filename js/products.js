@@ -80,7 +80,7 @@ function render() {
       wishlistBtn.disabled = 1;
     };
     image.onclick = () => {                                          
-      localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page
+      localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page by abdo 3mad
       window.location.href = "product-details.html";
     };
     grid.appendChild(card); //add each card as a child to the grid
@@ -99,17 +99,6 @@ function changePage(dir) {
   render(); // calling the render function to update the changes to the cards and animate them
 }
 
-
-searchBar.addEventListener("input", function () {
-  const q = this.value.toLowerCase().trim();
-  filteredData = PRODUCTS.filter(
-    //change filteredData to only include products matching the search
-    (p) =>
-      p.id.toLowerCase().includes(q)
-  );
-  currentPage = 1;
-  render(); //calling the render function to update the changes to the cards
-});
 
 function changeCategory(cat){
   if(cat === 'all'){
