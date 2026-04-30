@@ -64,7 +64,7 @@ function render() {
         <div class="card-name">${p.id}</div>
         <div class="card-price">$${p.price}</div>
         <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
-        <button class="wishlist-btn" data-id="${p.id}">Wishlist</button>
+        <button class="wishlist-btn" data-id="${p.id}">🤍</button>
       </div>`;
     const image = card.querySelector('.card-img');
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
@@ -78,7 +78,7 @@ function render() {
     wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
       wishlist.push(p);
       localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
-      wishlistBtn.innerHTML = `Wishlisted!`
+      wishlistBtn.innerHTML = `❤️`
       wishlistBtn.disabled = 1;
     };
 
@@ -87,7 +87,7 @@ function render() {
       addToCartBtn.disabled = 1;
     }
     if (wishlist.some(item => item.id === p.id)) {
-      wishlistBtn.innerHTML = `In Wishlist!`;
+      wishlistBtn.innerHTML = `❤️`;
       wishlistBtn.disabled = 1;
     }
     image.onclick = () => {                                          
