@@ -1,6 +1,6 @@
 const grid = document.getElementById("products-grid");
-const gridBtn = document.getElementById("grid-toggle");
-const listBtn = document.getElementById("list-toggle");
+const gridBtn = document.getElementById("grid-btn");
+const listBtn = document.getElementById("list-btn");
 const root = document.documentElement;
 const pageIndicator = document.getElementById("page-indicator");
 const prevBtn = document.getElementById("prev-btn");
@@ -32,6 +32,7 @@ const PRODUCTS = [
 
 const productsPerPage = 6;
 let currentPage = 1;
+gridBtn.disabled = 1;
 let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
 const wishlist = JSON.parse(localStorage.getItem("wishlist"))
 const cart = JSON.parse(localStorage.getItem("cart"))
@@ -130,18 +131,20 @@ function changeCategory(cat){
   render();
 }
 
-function gridToggle() {
-  grid.classList.add("view-grid");
-  grid.classList.remove("view-list");
-  gridBtn.disabled = 1;
-  listBtn.disabled = 0;
-  render();
-}
-function listToggle() {
-  grid.classList.add("view-list");
-  grid.classList.remove("view-grid");
-  listBtn.disabled = 1;
-  gridBtn.disabled = 0;
-  render();
+function toggleView(){
+  if(event.target.id === "grid-btn"){
+    grid.classList.add("view-grid");
+    grid.classList.remove("view-list");
+    gridBtn.disabled = 1;
+    listBtn.disabled = 0;
+    render();
+  }
+  else{
+    grid.classList.add("view-list")
+    grid.classList.remove("view-grid");
+    listBtn.disabled = 1;
+    gridBtn.disabled = 0;
+    render();
+  }
 }
 render();

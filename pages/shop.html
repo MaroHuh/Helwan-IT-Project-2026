@@ -51,6 +51,28 @@
         display: flex;
       }
 
+      .toggle-view-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        font-family: Arial, sans-serif;
+        border: 0.5px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+        transition: border-color 0.15s;
+        width: 100%;
+      }
+      .toggle-view-btn:hover:not(:disabled) {
+        background: var(--accent);
+        color: var(--surface);
+      }
+      .toggle-view-btn:disabled {
+        opacity: 35%;
+        background: var(--accent);
+        color: var(--surface);
+        cursor: auto;
+      }
+
       #products-wrapper {
         width: 100%;
         padding: 1rem;
@@ -121,6 +143,12 @@
       .view-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+      .view-list {
+        display: grid;
+        max-width: 80%;
+        grid-template-columns: repeat(1, 1fr);
         gap: 1rem;
       }
 
@@ -280,7 +308,7 @@
         }
         #top-bar {
           justify-self: auto;
-          max-width: 70%;
+          max-width: 100%;
           margin-left: 1rem;
         }
 
@@ -310,6 +338,9 @@
           grid-template-columns: repeat(2, 1fr);
           gap: 0.5rem;
         }
+        .view-list {
+          min-width: 80%;
+        }
 
         .card-img {
           width: 80px;
@@ -317,6 +348,7 @@
         }
 
         #search-bar {
+          max-width: 30%;
           font-size: 0.9rem;
         }
       }
@@ -330,6 +362,14 @@
     <main id="products-wrapper">
       <div id="top-bar">
         <input type="text" id="search-bar" placeholder="Search products..." />
+        <div id="view-buttons">
+          <button class="toggle-view-btn" id="grid-btn" onclick="toggleView()">
+            Grid
+          </button>
+          <button class="toggle-view-btn" id="list-btn" onclick="toggleView()">
+            List
+          </button>
+        </div>
       </div>
 
       <div id="shop-layout">
