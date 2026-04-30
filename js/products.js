@@ -100,6 +100,10 @@ function changePage(dir) {
 
 
 function changeCategory(cat){
+  document.querySelectorAll("#category-list ul li").forEach(li => {
+    li.classList.remove("active");
+  });
+  event.target.classList.add("active");
   if(cat === 'all'){
     filteredData = [...PRODUCTS];
     currentPage = 1;
