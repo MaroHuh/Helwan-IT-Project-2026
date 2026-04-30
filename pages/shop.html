@@ -21,7 +21,8 @@
 }
 
 #search-bar {
-  width: 80%;
+  margin-left: 32.5rem;
+  width: 40%;
   padding: 0.65rem 1rem;
   font-size: 1rem;
   font-family: Arial, sans-serif;
@@ -47,7 +48,56 @@
   cursor: pointer;
   transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
-#list-toggle:hover:not(:disabled), #grid-toggle:hover:not(:disabled){
+#category-list {
+  justify-self: left;
+  margin-left: 350px;
+  position: absolute;
+  margin-bottom: 1.5rem;
+}
+
+#category-list h5 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  margin-bottom: 0.6rem;
+}
+
+#category-list ul {
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+#category-list ul li {
+  padding: 0.4rem 1rem;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  font-family: Arial, sans-serif;
+  border: 1.5px solid var(--border);
+  border-radius: 999px;        /* pill shape */
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  user-select: none;
+}
+
+#category-list ul li:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+
+#category-list ul li.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--surface);
+}
+#list-toggle:hover:not(:disabled), #grid-toggle:hover:not(:disabled), #category-list ul li:hover{
   cursor: pointer;
   background-color: var(--accent);
   border-color: var(--accent-h);
@@ -68,7 +118,9 @@
 }
 
 #products-grid {
-  width: 100%;
+  width: 50%;
+  min-height: 650px;
+  justify-self: center;
 }
 
 .view-grid {
@@ -82,6 +134,7 @@
   flex-direction: column;
   gap: 0.75rem;
 }
+
 
 .product-card {
   animation: fadeIn 0.25s both;
@@ -154,7 +207,7 @@
   border-top: 1px solid var(--border);
 }
 
-#page-buttons button {
+#page-buttons button, .wishlist-btn, .add-to-cart-btn {
   padding: 0.5rem 1.2rem;
   font-size: 0.9rem;
   font-family: Arial, sans-serif;
@@ -163,16 +216,14 @@
   background: var(--surface);
   color: var(--text);
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 
-#page-buttons button:hover:not(:disabled) {
-  background: var(--accent);
+#page-buttons button:hover:not(:disabled), .wishlist-btn:hover:not(:disabled), .add-to-cart-btn:hover:not(:disabled){
+  background: var(--surface);
   border-color: var(--accent);
-  color: var(--surface);
 }
 
-#page-buttons button:disabled {
+#page-buttons button:disabled, .wishlist-btn:disabled, .add-to-cart-btn:disabled {
   opacity: 0.35;
   cursor: auto;
 }
@@ -202,7 +253,32 @@
     height: 40px;
   }
   #navbar { font-size: 0.9rem; }
-  #search-bar{width: 50%;}
+  #search-bar{
+    width: 50%;
+    margin: 0;
+  }
+  #category-list ul {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 6px;
+  }
+  #products-grid{
+    justify-self: right;
+    min-height: 530px;
+    gap: 35px;
+    margin-right: 5rem;
+    margin-top: 2rem;
+  }
+  #category-list{
+    margin-left: 0;
+  }
+  #category-list ul li {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .wishlist-btn, .add-to-cart-btn {
+    padding: 0.2rem, 1rem;
+  }
 }
 
     </style>
@@ -228,9 +304,21 @@
                 Grid
             </button>
         </div>
+        <div id="category-list">
+          <h5>Categories</h5>
+          <ul>
+            <li onclick="changeCategory('all')">All</li>
+            <li onclick="changeCategory('clothing')">Clothing</li>
+            <li onclick="changeCategory('footwear')">Footwear</li>
+            <li onclick="changeCategory('accessories')">Accessories</li>
+            <li onclick="changeCategory('electronics')">Electronics</li>
+            <li onclick="changeCategory('stationery')">Stationery</li>
+          </ul>
+        </div>
         <div id="products-grid" class="view-grid">
           <!-- products appended with javascript-->
         </div>
+        
         <p id="no-results" class="hidden">No products found.</p>
 
         <div id="page-buttons">

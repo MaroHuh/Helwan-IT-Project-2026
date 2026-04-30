@@ -35,6 +35,11 @@ const productsPerPage = 6;
 let currentPage = 1;
 let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
 
+window.PRODUCTS = PRODUCTS;
+window.filteredData = filteredData;
+window.render = render;
+window.currentPage = currentPage;
+
 function render() {
   const totalPages = Math.max(
     1,
@@ -58,14 +63,35 @@ function render() {
         <div class="card-img"><img src="${p.img}"></div>
         <div class="card-name">${p.id}</div>
         <div class="card-price">$${p.price}</div>
+        <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
+        <button class="wishlist-btn" data-id="${p.id}">Wishlist</button>
       </div>`;
-      grid.appendChild(card); //add each card as a child to the grid
+    const image = card.querySelector('.card-img');
+    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    const wishlistBtn = card.querySelector('.wishlist-btn');
+    addToCartBtn.onclick = () =>{ // only the style related js
+      addToCartBtn.innerHTML = `Added!`
+      addToCartBtn.style.backgroundColor = "lime";
+      addToCartBtn.disabled = 1;
+    };
+    wishlistBtn.onclick = () =>{ // only the style related js
+      wishlistBtn.innerHTML = `Wishlisted!`
+      wishlistBtn.style.backgroundColor = "lime";
+      wishlistBtn.disabled = 1;
+    };
+    image.onclick = () => {                                          
+      localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page
+      window.location.href = "product-details.html";
+    };
+    grid.appendChild(card); //add each card as a child to the grid
   });
 
+  
   pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
   prevBtn.disabled = currentPage === 1; //disable previous button if at page 1
   nextBtn.disabled = currentPage === totalPages; //disable next button if at the last page
 }
+
 
 function changePage(dir) {
   const totalPages = Math.ceil(filteredData.length / productsPerPage);
@@ -73,17 +99,32 @@ function changePage(dir) {
   render(); // calling the render function to update the changes to the cards and animate them
 }
 
+
 searchBar.addEventListener("input", function () {
   const q = this.value.toLowerCase().trim();
   filteredData = PRODUCTS.filter(
     //change filteredData to only include products matching the search
     (p) =>
-      p.id.toLowerCase().includes(q) ||
-      p.cat.toLowerCase().includes(q),
+      p.id.toLowerCase().includes(q)
   );
   currentPage = 1;
   render(); //calling the render function to update the changes to the cards
 });
+
+function changeCategory(cat){
+  if(cat === 'all'){
+    filteredData = [...PRODUCTS];
+    currentPage = 1;
+    render()
+    return;
+  }
+  filteredData = PRODUCTS.filter(
+    (p)=>
+      p.cat.toLowerCase().includes(cat)
+  );
+  currentPage = 1;
+  render();
+}
 
 function gridToggle() {
   grid.classList.add("view-grid");
