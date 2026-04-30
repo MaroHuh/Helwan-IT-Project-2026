@@ -2,7 +2,6 @@ const grid = document.getElementById("products-grid");
 const gridBtn = document.getElementById("grid-toggle");
 const listBtn = document.getElementById("list-toggle");
 const root = document.documentElement;
-const searchBar = document.getElementById("search-bar");
 const pageIndicator = document.getElementById("page-indicator");
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
