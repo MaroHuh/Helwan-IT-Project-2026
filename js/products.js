@@ -108,7 +108,7 @@ function render() {
 
 function changePage(dir) {
   const totalPages = Math.ceil(filteredData.length / productsPerPage);
-  currentPage = Math.min(Math.max(1, currentPage + dir), totalPages); // if dir = -1, go back a page, if dir = 1, go forwards a page
+  window.currentPage = Math.min(Math.max(1, window.currentPage + dir), totalPages); // if dir = -1, go back a page, if dir = 1, go forwards a page
   render(); // calling the render function to update the changes to the cards and animate them
 }
 
