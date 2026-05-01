@@ -41,6 +41,8 @@ window.render = render;
 window.currentPage = currentPage;
 
 function render() {
+  filteredData = window.filteredData;
+  currentPage = window.currentPage;
   const totalPages = Math.max(
     1,
     Math.ceil(filteredData.length / productsPerPage), //making the total number of pages always fit the entire products list even if it changes
@@ -111,24 +113,6 @@ function changePage(dir) {
 }
 
 
-function changeCategory(cat){
-  document.querySelectorAll("#category-list ul li").forEach(li => {
-    li.classList.remove("active");
-  });
-  event.target.classList.add("active");
-  if(cat === 'all'){
-    filteredData = [...PRODUCTS];
-    currentPage = 1;
-    render()
-    return;
-  }
-  filteredData = PRODUCTS.filter(
-    (p)=>
-      p.cat.toLowerCase().includes(cat)
-  );
-  currentPage = 1;
-  render();
-}
 
 function toggleView(){
   if(event.target.id === "grid-btn"){
