@@ -22,7 +22,7 @@ const PRODUCTS = [
   { id: "PS5 Controller", cat: "Controllers", price: 70, img: "../images/products/ps5-controller.png" },
   { id: "Xbox Controller", cat: "Controllers", price: 65, img: "../images/products/xbox-controller.png" },
 
-  { id: "AirPods Pro", cat: "Headphones", price: 249, img: "../images/products/airpods-pro.png" },
+  { id: "AirPods Pro", cat: "Earbuds", price: 249, img: "../images/products/airpods-pro.png" },
 
   { id: "GoPro", cat: "Cameras", price: 400, img: "../images/products/gopro.png" },
   { id: "Webcam", cat: "Cameras", price: 95, img: "../images/products/webcam.png" },
