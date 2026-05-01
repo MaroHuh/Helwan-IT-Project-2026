@@ -7,26 +7,30 @@ const nextBtn = document.getElementById("next-btn");
 const noResults = document.getElementById("no-results");
 
 const PRODUCTS = [
-  { id: "Blue Hoodie",      cat: "Clothing",       price: 100,  img: "../images/products/hoodie-blue.png" },
-  { id: "Black T-Shirt",    cat: "Clothing",       price: 30,   img: "../images/products/tshirt-black.png" },
-  { id: "Denim Jacket",     cat: "Clothing",       price: 150,  img: "../images/products/jacket-denim.png" },
-  { id: "Cargo Shorts",     cat: "Clothing",       price: 50,   img: "../images/products/shorts-cargo.png" },
+  { id: "SmartWatch", cat: "Watches", price: 200, img: "../images/products/watch.png" },
+  { id: "Phone Stand", cat: "Phone Accessories", price: 22, img: "../images/products/phone-stand.png" },
+  
+  { id: "iPhone 15", cat: "Phones", price: 999, img: "../images/products/iphone15.png" },
+  { id: "Samsung Galaxy S24", cat: "Phones", price: 899, img: "../images/products/galaxy.png" },
+  { id: "Phone Case", cat: "Phone Accessories", price: 15, img: "../images/products/phone-case.png" },
+  { id: "Charging Cable", cat: "Phone Accessories", price: 12, img: "../images/products/charging-cable.png" },
 
-  { id: "Running Shoes",    cat: "Footwear",       price: 120,  img: "../images/products/shoes-running.png" },
-  { id: "White Sneakers",   cat: "Footwear",       price: 90,   img: "../images/products/sneakers-white.png" },
-  { id: "Black Boots",      cat: "Footwear",       price: 180,  img: "../images/products/boots-black.png" },
-  { id: "Sandals",          cat: "Footwear",       price: 40,   img: "../images/products/sandals.png" },
+  { id: "MacBook Pro", cat: "Laptops", price: 1999, img: "../images/products/macbook-pro.png" },
+  { id: "Dell Laptop", cat: "Laptops", price: 1499, img: "../images/products/dell.png" },
+  { id: "Laptop Stand", cat: "Laptops", price: 45, img: "../images/products/laptop-stand.png" },
 
-  { id: "Baseball Cap",     cat: "Accessories",    price: 25,   img: "../images/products/cap-baseball.png" },
-  { id: "Sunglasses",       cat: "Accessories",    price: 45,   img: "../images/products/sunglasses.png" },
-  { id: "Black Backpack",  cat: "Accessories",    price: 75,   img: "../images/products/backpack-black.png" },
-  { id: "Watch",            cat: "Accessories",    price: 200,  img: "../images/products/watch.png" },
+  { id: "PS5 Controller", cat: "Controllers", price: 70, img: "../images/products/ps5-controller.png" },
+  { id: "Xbox Controller", cat: "Controllers", price: 65, img: "../images/products/xbox-controller.png" },
 
-  { id: "Wireless Earbuds", cat: "Electronics",    price: 80,   img: "../images/products/earbuds.png" },
-  { id: "Phone Stand",      cat: "Electronics",    price: 22,   img: "../images/products/phone-stand.png" },
-  { id: "Webcam",           cat: "Electronics",    price: 95,   img: "../images/products/webcam.png" },
+  { id: "AirPods Pro", cat: "Headphones", price: 249, img: "../images/products/airpods-pro.png" },
 
-  { id: "Notebook",         cat: "Stationery",     price: 8,    img: "../images/products/notebook.png" },
+  { id: "GoPro", cat: "Cameras", price: 400, img: "../images/products/gopro.png" },
+  { id: "Webcam", cat: "Cameras", price: 95, img: "../images/products/webcam.png" },
+
+  { id: "Mechanical Keyboard", cat: "Computer Accessories", price: 130, img: "../images/products/keyboard.png" },
+  { id: "Gaming Mouse", cat: "Computer Accessories", price: 60, img: "../images/products/mouse.png" },
+  { id: "USB-C Hub", cat: "Computer Accessories", price: 55, img: "../images/products/usb-hub.png" },
+  { id: "Curved Monitor", cat: "Computer Accessories", price: 350, img: "../images/products/monitor.png" },
 ];
 
 const productsPerPage = 6;
@@ -61,12 +65,12 @@ function render() {
     card.style.animationDelay = `${i * 100}ms`; // using the index * 100 so they dont all fade in at once
     card.innerHTML = `
       <div class="card-info">
-        <div class="card-cat">${p.cat}</div>
-        <div class="card-img"><img src="${p.img}"></div>
-        <div class="card-name">${p.id}</div>
-        <div class="card-price">$${p.price}</div>
+        <div class="card-cat" class="addToWishlist">${p.cat}</div>
+        <div class="card-img" class="addToWishlist"><img src="${p.img}"></div>
+        <div class="card-name" class="addToWishlist">${p.id}</div>
+        <div class="card-price" class="addToWishlist">$${p.price}</div>
         <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
-        <button class="wishlist-btn" data-id="${p.id}">🤍</button>
+        <button class="wishlist-btn" class="addToWishlist" data-id="${p.id}">🤍</button>
       </div>`;
     const image = card.querySelector('.card-img');
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
