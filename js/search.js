@@ -1,18 +1,5 @@
-let currentSearchTerm = ""; 
-let currentCategory = "all";
-
-
 const searchInput = document.getElementById("search-bar");
 
-
-function searchFunction(q){
-    window.filteredData = window.PRODUCTS.filter(
-        (p)=>
-            p.id.toLowerCase().includes(q)
-    );
-    window.currentPage = 1;
-    window.render();
-}
 
 if (searchInput) {
     searchInput.addEventListener("input", (event) => {
