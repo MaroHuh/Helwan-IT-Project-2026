@@ -97,7 +97,7 @@ function render() {
       wishlistBtn.disabled = 1;
     }
     image.onclick = () => {                                          
-      localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page by abdo 3mad
+      localStorage.setItem("selectedProduct", JSON.stringify(p)); //sending the porduct's info to the product info page
       window.location.href = "product-details.html";
     };
     grid.appendChild(card); //add each card as a child to the grid
