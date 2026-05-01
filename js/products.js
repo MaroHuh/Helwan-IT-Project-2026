@@ -113,7 +113,6 @@ function changePage(dir) {
 }
 
 
-
 function toggleView(){
   if(event.target.id === "grid-btn"){
     grid.classList.add("view-grid");
