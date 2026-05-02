@@ -81,7 +81,7 @@ function render() {
       addToCartBtn.innerHTML = `Added to Cart!`
       addToCartBtn.disabled = 1;
     };
-    wishlistBtn.onclick = () =>{ // this should update the wishlist in the localstorage and add this product to it
+    wishlistBtn.onclick = () =>{ // this updates the wishlist in the localstorage and add this product to it
       wishlist.push(p);
       localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
       wishlistBtn.innerHTML = `❤️`
