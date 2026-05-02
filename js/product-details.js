@@ -26,8 +26,14 @@ cartBtn.onclick = () => {
             cart.push(product);
             localStorage.setItem("cart", JSON.stringify(cart));
             messageArea.innerText = "Product added to cart successfully!";
+            messageArea.style.color = "green";
+            messageArea.style.fontWeight = "bold";
+            messageArea.style.marginTop = "10px";
         } else {
             messageArea.innerText = "Product is already in your cart.";
+            messageArea.style.color = "red";
+            messageArea.style.fontWeight = "bold";
+            messageArea.style.marginTop = "10px";
         }
     }
 };
