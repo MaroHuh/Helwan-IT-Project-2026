@@ -1,6 +1,6 @@
 /* ==========================================================================
    MyStore Global Stylesheet
-      By usef
+   by usef
    ========================================================================== */
 
 /* Reset */
@@ -56,32 +56,8 @@ ol {
   list-style: none;
 }
 
-/* Design System */
+/* Base tokens are structural. Theme files provide color values. */
 :root {
-  color-scheme: light;
-
-  --color-brand: #0b63f6;
-  --color-brand-strong: #084fc5;
-  --color-brand-soft: #eaf2ff;
-  --color-accent: #ffb703;
-  --color-success: #0e9f6e;
-  --color-danger: #dc2626;
-  --color-danger-soft: #fff1f2;
-
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --surface-raised: #ffffff;
-  --surface-muted: #f1f4f9;
-  --text: #141821;
-  --text-soft: #394150;
-  --muted: #6b7280;
-  --border: #e3e7ef;
-  --border-strong: #cfd6e3;
-
-  --primary: var(--color-brand);
-  --primary-dark: var(--color-brand-strong);
-  --accent: var(--color-accent);
-
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -99,29 +75,88 @@ ol {
   --radius-xl: 1.25rem;
   --radius-pill: 999px;
 
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
-  --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 14px 36px rgba(15, 23, 42, 0.1);
-  --shadow-lg: 0 24px 60px rgba(15, 23, 42, 0.14);
-  --ring: 0 0 0 4px rgba(11, 99, 246, 0.16);
-
   --container: 1180px;
   --transition-fast: 160ms ease;
   --transition: 240ms ease;
   --transition-slow: 360ms ease;
+
+  /* Safe defaults; light-theme.css and dark-theme.css override these. */
+  --bg-color: Canvas;
+  --bg-gradient: none;
+  --card-color: Canvas;
+  --card-elevated: Canvas;
+  --card-muted: Canvas;
+  --text-color: CanvasText;
+  --secondary-text: GrayText;
+  --muted-color: GrayText;
+  --primary-color: LinkText;
+  --primary-hover: LinkText;
+  --primary-soft: transparent;
+  --accent-color: LinkText;
+  --success-color: LinkText;
+  --danger-color: Mark;
+  --danger-soft: transparent;
+  --danger-hover: transparent;
+  --border-color: GrayText;
+  --border-strong: GrayText;
+  --input-placeholder: GrayText;
+  --button-text-on-primary: Canvas;
+  --selection-bg: Highlight;
+  --navbar-bg: Canvas;
+  --footer-bg: Canvas;
+  --glass-color: Canvas;
+  --glass-strong: Canvas;
+  --search-divider: GrayText;
+  --primary-border-soft: GrayText;
+  --danger-border-soft: GrayText;
+  --danger-border-strong: GrayText;
+  --product-media-bg: Canvas;
+  --product-image-shadow: none;
+  --empty-state-bg: Canvas;
+  --focus-ring: 0 0 0 4px transparent;
+  --shadow-xs: none;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --primary-shadow: none;
+  --primary-shadow-hover: none;
+  --navbar-border: var(--border-color);
+  --navbar-shadow: none;
+
+  /* Backward-compatible aliases used by page-level styles. */
+  --bg: var(--bg-color);
+  --surface: var(--card-color);
+  --surface-raised: var(--card-elevated);
+  --surface-muted: var(--card-muted);
+  --text: var(--text-color);
+  --text-soft: var(--secondary-text);
+  --muted: var(--muted-color);
+  --border: var(--border-color);
+  --primary: var(--primary-color);
+  --primary-dark: var(--primary-hover);
+  --accent: var(--accent-color);
+  --color-brand: var(--primary-color);
+  --color-brand-strong: var(--primary-hover);
+  --color-brand-soft: var(--primary-soft);
+  --color-accent: var(--accent-color);
+  --color-success: var(--success-color);
+  --color-danger: var(--danger-color);
+  --color-danger-soft: var(--danger-soft);
+  --ring: var(--focus-ring);
 }
 
 /* Typography */
 body {
-  background:
-    radial-gradient(circle at top left, rgba(11, 99, 246, 0.08), transparent 34rem),
-    linear-gradient(180deg, #fbfcff 0%, var(--bg) 42rem);
-  color: var(--text);
+  background: var(--bg-gradient), var(--bg-color);
+  color: var(--text-color);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
 }
 
 h1,
@@ -130,18 +165,18 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text);
+  color: var(--text-color);
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.15;
 }
 
 p {
-  color: var(--text-soft);
+  color: var(--secondary-text);
 }
 
 ::selection {
-  background: rgba(11, 99, 246, 0.18);
+  background: var(--selection-bg);
 }
 
 /* Layout */
@@ -185,26 +220,26 @@ button:disabled {
 
 .btn-primary,
 .Btn-primary {
-  background: linear-gradient(180deg, var(--color-brand), var(--color-brand-strong));
-  color: #ffffff;
-  box-shadow: 0 12px 24px rgba(11, 99, 246, 0.22);
+  background: linear-gradient(180deg, var(--primary-color), var(--primary-hover));
+  color: var(--button-text-on-primary);
+  box-shadow: var(--primary-shadow);
 }
 
 .btn-primary:hover,
 .Btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 30px rgba(11, 99, 246, 0.28);
+  box-shadow: var(--primary-shadow-hover);
 }
 
 .btn-secondary {
-  background: var(--surface);
-  border-color: var(--border);
-  color: var(--text);
+  background: var(--card-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
   box-shadow: var(--shadow-xs);
 }
 
 .btn-secondary:hover {
-  background: var(--surface-muted);
+  background: var(--card-muted);
   border-color: var(--border-strong);
   transform: translateY(-1px);
 }
@@ -214,10 +249,10 @@ input,
 textarea,
 select {
   width: 100%;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  background: var(--surface);
-  color: var(--text);
+  background: var(--card-color);
+  color: var(--text-color);
   padding: 0.8rem 0.95rem;
   outline: none;
   box-shadow: var(--shadow-xs);
@@ -229,14 +264,14 @@ select {
 
 input::placeholder,
 textarea::placeholder {
-  color: #9aa3b2;
+  color: var(--input-placeholder);
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  border-color: var(--color-brand);
-  box-shadow: var(--ring), var(--shadow-xs);
+  border-color: var(--primary-color);
+  box-shadow: var(--focus-ring), var(--shadow-xs);
 }
 
 /* Navbar */
@@ -245,9 +280,9 @@ select:focus {
   position: sticky;
   top: 0;
   z-index: 50;
-  border-bottom: 1px solid rgba(227, 231, 239, 0.86);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  border-bottom: 1px solid var(--navbar-border);
+  background: var(--navbar-bg);
+  box-shadow: var(--navbar-shadow);
   backdrop-filter: blur(18px);
 }
 
@@ -264,14 +299,14 @@ select:focus {
 
 #navbar h2,
 #Navbar h2 {
-  color: var(--text);
+  color: var(--text-color);
   font-size: clamp(1.25rem, 2vw, 1.55rem);
   font-weight: 900;
 }
 
 #navbar h2::first-letter,
 #Navbar h2::first-letter {
-  color: var(--color-brand);
+  color: var(--primary-color);
 }
 
 #navbar ul,
@@ -291,7 +326,7 @@ select:focus {
 #navbar a,
 #Navbar a {
   border-radius: var(--radius-pill);
-  color: var(--text-soft);
+  color: var(--secondary-text);
   display: inline-flex;
   align-items: center;
   min-height: 2.35rem;
@@ -305,40 +340,40 @@ select:focus {
 
 #navbar a:hover,
 #Navbar a:hover {
-  background: var(--color-brand-soft);
-  color: var(--color-brand-strong);
+  background: var(--primary-soft);
+  color: var(--primary-hover);
 }
 
 #navbar button,
 #Navbar button {
   min-width: 2.35rem;
   min-height: 2.35rem;
-  border-color: var(--border);
+  border-color: var(--border-color);
   border-radius: var(--radius-pill);
-  background: var(--surface);
-  color: var(--text);
+  background: var(--card-color);
+  color: var(--text-color);
   padding: 0;
   box-shadow: var(--shadow-xs);
 }
 
 #navbar button:hover,
 #Navbar button:hover {
-  border-color: var(--color-brand);
-  color: var(--color-brand);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
   transform: translateY(-1px);
 }
 
 /* Footer */
 #footer {
   margin-top: var(--space-12);
-  border-top: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--muted);
+  border-top: 1px solid var(--border-color);
+  background: var(--footer-bg);
+  color: var(--muted-color);
   padding: var(--space-8) var(--space-4);
 }
 
 #footer p {
-  color: var(--muted);
+  color: var(--muted-color);
   font-size: 0.95rem;
 }
 
