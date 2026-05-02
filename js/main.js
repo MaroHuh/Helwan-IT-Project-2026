@@ -28,6 +28,23 @@ function toggleTheme() {
 
 applyTheme(getSavedTheme());
 
+function updateWishlistBadge() {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const badge = document.getElementById("wishlist-badge");
+    //دالة الcount لل wishlist 
+    if (badge) {
+        badge.innerText = wishlist.length;
+      
+        if (wishlist.length === 0) {
+            badge.style.display = "none";
+        } else {
+            badge.style.display = "inline-block";
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", updateWishlistBadge);
+
 if (navbar) {
   navbar.innerHTML = `
 <nav class="navbar">
@@ -38,7 +55,7 @@ if (navbar) {
       <li><a href="../pages/shop.html">Shop</a></li>
       <li><a href="../pages/cart.html">Cart</a></li>
       <li><a href="../pages/login.html">Login</a></li>
-      <li><a href="../pages/wishlist.html">Your Wishlist</a></li>
+      <li><a href="../pages/wishlist.html"class="nav-link">Your Wishlist<span id="wishlist-badge" class="badge">0</span></a></li>
       <li><button type="button" onclick="toggleTheme()" aria-label="Toggle theme">Theme</button></li>
     </ul>
   </div>
