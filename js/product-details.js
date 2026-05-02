@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productIdFromURL = urlParams.get('id'); 
 
-const product = PRODUCTS.find(p => p.id === productIdFromURL);
+const product = products.find(p => p.id === productIdFromURL);
 
 if (product) {
     document.getElementById('product-id').innerText = product.id;
@@ -17,6 +17,7 @@ const cartBtn = document.querySelector('.add-to-cart-btn');
 
 cartBtn.onclick = () => {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const messageArea = document.getElementById('message-area');
     
     if (product) {
         const isExist = cart.some(item => item.id === product.id);
@@ -24,9 +25,9 @@ cartBtn.onclick = () => {
         if (!isExist) {
             cart.push(product);
             localStorage.setItem("cart", JSON.stringify(cart));
-            alert("Product added to cart!");
+            messageArea.innerText = "Product added to cart successfully!";
         } else {
-            alert("Product is already in cart!");
+            messageArea.innerText = "Product is already in your cart.";
         }
     }
 };
