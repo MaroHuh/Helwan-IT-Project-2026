@@ -7,7 +7,7 @@ document.getElementById("navbar").innerHTML = `
                     <li><a href="../pages/shop.html">Shop</a></li>
                     <li><a href="../pages/cart.html">Cart</a></li>
                     <li><a href="../pages/login.html">Login</a></li>
-                    <li><a href="../pages/wishlist.html">Your Wishlist></a></li>
+                    <li><a href="../pages/wishlist.html">Your Wishlist</a></li>
                     <li><button onclick="toggleTheme()">🌙</button></li>
                 </ul>
   </div>
