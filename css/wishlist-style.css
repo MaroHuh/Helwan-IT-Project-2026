@@ -1,0 +1,153 @@
+/* =========================
+   General
+========================= */
+.container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Breadcrumb
+========================= */
+.breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.breadcrumbs span {
+  color: #555;
+}
+
+/* =========================
+   Header
+========================= */
+.Section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.Section-header h2 {
+  margin: 0;
+}
+
+#Wishlist-count {
+  color: #777;
+}
+
+/* Buttons */
+.btn-secondary {
+  padding: 8px 14px;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #bbb;
+}
+
+/* =========================
+   Grid
+========================= */
+.View-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+/* Product Card */
+.product-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  margin: 10px 0;
+}
+
+.product-card button {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background: #ff4d4d;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.product-card button:hover {
+  background: #cc0000;
+}
+
+/* =========================
+   Empty State
+========================= */
+.Hidden {
+  display: none;
+}
+
+#Empty-state {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.Empty-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   Navigation
+========================= */
+.Back-navigation {
+  margin-top: 30px;
+}
+
+.Back-navigation a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+/* =========================
+   Auth Box
+========================= */
+.Auth-box {
+  text-align: center;
+  padding: 30px;
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.Btn-primary {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.Btn-primary:hover {
+  background: #0056b3;
+}
