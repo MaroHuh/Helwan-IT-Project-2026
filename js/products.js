@@ -37,8 +37,8 @@ const productsPerPage = 6;
 let currentPage = 1;
 gridBtn.disabled = 1;
 let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
-const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-const cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 window.PRODUCTS = PRODUCTS;
 window.filteredData = filteredData;
 window.render = render;
@@ -76,25 +76,37 @@ function render() {
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
     const wishlistBtn = card.querySelector('.wishlist-btn');
     addToCartBtn.onclick = () =>{ // this should update the cart in the localstorage and add this product to it
+      if (cart.some(item => item.id == p.id)){
+        addToCartBtn.innerHTML = "Add to Cart";
+        cart = cart.filter(item => item.id != p.id);
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+      else{
       cart.push(p);
       localStorage.setItem("cart", JSON.stringify(cart)); // save the new item in cart in the local storage
-      addToCartBtn.innerHTML = `Added to Cart!`
-      addToCartBtn.disabled = 1;
+      addToCartBtn.innerHTML = `Remove from Cart`
+      }
     };
     wishlistBtn.onclick = () =>{ // this updates the wishlist in the localstorage and add this product to it
+      if (wishlist.some(item => item.id === p.id)) {
+        wishlistBtn.innerHTML = `🤍`;
+        wishlist = wishlist.filter(item => item.id !== p.id);
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }
+    else{
       wishlist.push(p);
       localStorage.setItem("wishlist", JSON.stringify(wishlist)); //save the new item in wishlist in the local storage
-      wishlistBtn.innerHTML = `❤️`
-      wishlistBtn.disabled = 1;
+      wishlistBtn.innerHTML = `❤️`;
+    }
     };
 
-    if (cart.some(item => item.id === p.id)) { //making sure u cant add items to cart/wishlist twice
-      addToCartBtn.innerHTML = `In Cart!`;
-      addToCartBtn.disabled = 1;
+    if (cart.some(item => item.id === p.id)) {
+      addToCartBtn.innerHTML = `Remove from Cart`;
+      addToCartBtn.disabled = 0;
     }
     if (wishlist.some(item => item.id === p.id)) {
       wishlistBtn.innerHTML = `❤️`;
-      wishlistBtn.disabled = 1;
+      wishlistBtn.disabled = 0;
     }
     image.onclick = () => {                                          
       window.location.href = `product-details.html?id=${p.id}`;
