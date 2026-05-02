@@ -39,9 +39,9 @@ function renderWishlist() {
                 <img src="${product.image}" alt="${product.name}">
                 <h4>${product.name}</h4>
                 <p>${product.price} EGP</p>
-                <button class="btn-remove" onclick="removeFromWishlist(${product.id})">Remove</button>
+                <button class="btn-remove" onclick="removeFromWishlist(${product.name})">Remove</button>
             </div>
-        `).join("");
+        `).join
     }
 }
 
