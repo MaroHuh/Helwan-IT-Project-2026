@@ -4,7 +4,7 @@ const searchInput = document.getElementById("search-bar");
 if (searchInput) {
     searchInput.addEventListener("input", (event) => {
         let q = searchInput.value.toLowerCase();
-        window.filteredData = window.PRODUCTS.filter(
+        window.filteredData = products.filter(
         (p)=>
             p.id.toLowerCase().includes(q)
     );
@@ -18,10 +18,10 @@ function changeCategory(categoryName){
     li.classList.remove("active");
   });
   if(categoryName === "all"){
-    window.filteredData = [...window.PRODUCTS];
+    window.filteredData = [...products];
   }
   else{
-    window.filteredData = window.PRODUCTS.filter(
+    window.filteredData = products.filter(
         (p) =>
             p.cat.toLowerCase().includes(categoryName)
         );

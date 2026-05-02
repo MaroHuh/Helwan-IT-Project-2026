@@ -1,5 +1,5 @@
 
-const PRODUCTS = [
+const products = [
   { id: "SmartWatch", cat: "Watches", price: 200, img: "../images/products/watch.png" },
   { id: "Phone Stand", cat: "Phone Accessories", price: 22, img: "../images/products/phone-stand.png" },
   
@@ -25,8 +25,8 @@ const PRODUCTS = [
   { id: "USB-C Hub", cat: "Computer Accessories", price: 55, img: "../images/products/usb-hub.png" },
   { id: "Curved Monitor", cat: "Computer Accessories", price: 350, img: "../images/products/monitor.png" },
 ];
-window.PRODUCTS = PRODUCTS;
-let filteredData = [...PRODUCTS];
+window.products = products;
+let filteredData = [...products];
 window.filteredData = filteredData;
 let currentPage = 1;
 window.currentPage = currentPage;
