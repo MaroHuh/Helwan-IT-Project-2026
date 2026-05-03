@@ -66,3 +66,42 @@ items.addEventListener("click", function(e) {
 });
 
 renderCart();
+
+document.querySelector(".myform").addEventListener("submit", function(e) {
+  e.preventDefault();
+  let inputs = document.querySelectorAll(".input_info input");
+  let formStatus = document.getElementById("form-status");
+  let isValid = true;
+
+  inputs.forEach((input) => {
+    let warning = input.nextElementSibling; 
+
+    if (input.value.trim() === "") {
+      warning.classList.remove("hidden");
+      warning.style.color = "red";
+      input.style.border = "2px solid red";
+      isValid = false;
+    } else {
+      warning.classList.add("hidden");
+      input.style.border = "1px solid #ccc";
+    }
+  });
+
+  if (isValid) {
+    if(cart.length === 0){
+        formStatus.classList.remove("hidden");
+        formStatus.innerHTML = `Cart is empty`;
+        formStatus.style.color = "red";
+    }
+    else{
+    formStatus.classList.remove("hidden");
+    formStatus.innerHTML = `Success!`;
+    formStatus.style.color = "green";
+    cart = [];
+    document.querySelector(".myform").reset();
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+    }
+  }
+
+});
