@@ -51,12 +51,8 @@ window.currentPage = currentPage;
 function render() {
   filteredData = window.filteredData;
   currentPage = window.currentPage;
-  const totalPages = Math.max(
-    1,
-    Math.ceil(filteredData.length / productsPerPage), //making the total number of pages always fit the entire products list even if it changes
-  );
+  const totalPages = Math.max(1, Math.ceil(filteredData.length / productsPerPage)); //making the total number of pages always fit the entire products list even if it changes
   if (currentPage > totalPages) currentPage = totalPages;
-
   const start = (currentPage - 1) * productsPerPage; // start at the correct array index for the page
   const slice = filteredData.slice(start, start + productsPerPage); // store from the correct array index to the correct last array index for the page
 
@@ -106,11 +102,9 @@ function render() {
 
     if (cart.some(item => item.id === p.id)) {
       addToCartBtn.innerHTML = `Remove from Cart`;
-      addToCartBtn.disabled = 0;
     }
     if (wishlist.some(item => item.id === p.id)) {
       wishlistBtn.innerHTML = `❤️`;
-      wishlistBtn.disabled = 0;
     }
     image.onclick = () => {                                          
       window.location.href = `product-details.html?id=${p.id}`;
