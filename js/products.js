@@ -65,12 +65,12 @@ function render() {
     card.style.animationDelay = `${i * 100}ms`; // using the index * 100 so they dont all fade in at once
     card.innerHTML = `
       <div class="card-info">
-        <div class="card-cat" class="addToWishlist">${p.cat}</div>
-        <div class="card-img" class="addToWishlist"><img src="${p.img}"></div>
-        <div class="card-name" class="addToWishlist">${p.id}</div>
-        <div class="card-price" class="addToWishlist">$${p.price}</div>
+        <div class="card-cat addToWishlist">${p.cat}</div>
+        <div class="card-img addToWishlist"><img src="${p.img}"></div>
+        <div class="card-name addToWishlist">${p.id}</div>
+        <div class="card-price addToWishlist">$${p.price}</div>
         <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
-        <button class="wishlist-btn" class="addToWishlist" data-id="${p.id}">🤍</button>
+        <button class="wishlist-btn addToWishlist" data-id="${p.id}">🤍</button>
       </div>`;
     const image = card.querySelector('.card-img');
     const addToCartBtn = card.querySelector('.add-to-cart-btn');
