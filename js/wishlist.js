@@ -11,8 +11,7 @@ function renderWishlist() {
     const authView = document.getElementById("Auth-guest-view");
     const countElement = document.getElementById("Wishlist-count");
 
-    // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-    const isLoggedIn = true;
+    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
     if (!isLoggedIn) {
         authView.classList.remove("Hidden");
