@@ -1,38 +1,8 @@
-/* ==========================================================================
-   Wishlist Page
-   Premium saved-products grid, empty/auth states, navigation
-   ========================================================================== */
-
 .container {
   padding: clamp(1.25rem, 3vw, 2.5rem) 0 0;
 }
 
-/* Breadcrumbs */
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-5);
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 700;
-}
-
-.breadcrumbs a {
-  color: var(--text-soft);
-  transition: color var(--transition-fast);
-}
-
-.breadcrumbs a:hover {
-  color: var(--color-brand);
-}
-
-.breadcrumbs span {
-  color: var(--text);
-}
-
-/* Main Wishlist Surface */
+/* Main */
 #Products-wrapper {
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
@@ -78,7 +48,7 @@
   transform: translateY(-1px);
 }
 
-/* Wishlist Grid */
+
 #Wishlist-grid,
 .View-grid {
   display: grid;
@@ -153,7 +123,7 @@
   transform: translateY(-1px);
 }
 
-/* Empty State */
+
 #Empty-state {
   width: min(34rem, 100%);
   margin: var(--space-8) auto var(--space-4);
@@ -192,7 +162,7 @@
   min-width: 10rem;
 }
 
-/* Back Navigation */
+
 .Back-navigation {
   margin-top: var(--space-6);
 }
@@ -216,8 +186,8 @@
   transform: translateX(-2px);
 }
 
-/* Existing Related/Guest Sections */
-#ÙŒRecommendations,
+
+#Recommendations,
 #Auth-guest-view {
   margin-top: var(--space-8);
 }
@@ -226,6 +196,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14.5rem, 1fr));
   gap: var(--space-5);
+}
+
+#Recommendations {
+  margin-top: var(--space-8);
 }
 
 .Auth-box {
@@ -266,7 +240,7 @@
   }
 }
 
-/* Responsive */
+
 @media (max-width: 760px) {
   .Section-header {
     grid-template-columns: 1fr;
