@@ -9,7 +9,7 @@ function updateTotals() {
     cart.forEach(p => {
         subtotal += p.price * p.quantity;
     });
-    const shipping = 20;
+    const shipping = cart.length > 0 ? 20 : 0;
     document.querySelector(".subtotal_checkout").textContent = "$" + subtotal;
     document.querySelector(".total_checkout").textContent = "$" + (subtotal + shipping);
 }
