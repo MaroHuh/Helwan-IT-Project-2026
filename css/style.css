@@ -1,6 +1,6 @@
 /* ==========================================================================
    MyStore Global Stylesheet
-   by usef + some help form codex
+   Theme-neutral reset, tokens, typography, controls, navbar, footer, utilities
    ========================================================================== */
 
 /* Reset */
@@ -304,9 +304,9 @@ select:focus {
   font-weight: 900;
 }
 
-#navbar h2::first-letter,
-#Navbar h2::first-letter {
-  color: var(--primary-color);
+.logo img {
+  height: 60px;
+  cursor: pointer;
 }
 
 #navbar ul,
