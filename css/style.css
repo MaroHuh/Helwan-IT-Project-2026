@@ -308,7 +308,35 @@ select:focus {
   height: 60px;
   cursor: pointer;
 }
+/* حجم اللوجو */
+.logo img {
+  height: 60px;
+  cursor: pointer;
+}
 
+/* ========================= */
+/* LOGO THEME SWITCH */
+/* ========================= */
+
+.logo-light,
+.logo-dark {
+  height: 60px;
+  transition: opacity 0.3s ease;
+}
+
+/* Light Mode */
+.logo-dark {
+  display: none;
+}
+
+/* Dark Mode */
+.dark-theme .logo-light {
+  display: none;
+}
+
+.dark-theme .logo-dark {
+  display: inline;
+}
 #navbar ul,
 #Navbar ul {
   display: flex;
@@ -362,6 +390,7 @@ select:focus {
   color: var(--primary-color);
   transform: translateY(-1px);
 }
+
 
 /* Footer */
 #footer {
