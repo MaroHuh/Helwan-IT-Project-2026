@@ -12,6 +12,10 @@ const products = [
   
   { id: "iPhone 15", cat: "Phones", price: 999, img: "../images/products/iphone15.png" },
   { id: "Samsung Galaxy S24", cat: "Phones", price: 899, img: "../images/products/galaxy.png" },
+  { id: "Samsung Galaxy S25 Ultra", cat: "Phones", price: 999, img: "../images/products/3.png" },
+  { id: "Samsung Galaxy S25", cat: "Phones", price: 899, img: "../images/products/1.png" },
+  { id: "Apple iPhone 16 Pro Max", cat: "Phones", price: 1250, img: "../images/products/4.png" },
+  { id: "Apple iPhone 17 Pro Max", cat: "Phones", price: 1450, img: "../images/products/2.png" },
   { id: "Phone Case", cat: "Phone Accessories", price: 15, img: "../images/products/phone-case.png" },
   { id: "Charging Cable", cat: "Phone Accessories", price: 12, img: "../images/products/charging-cable.png" },
 
