@@ -11,7 +11,8 @@ function renderWishlist() {
     const authView = document.getElementById("Auth-guest-view");
     const countElement = document.getElementById("Wishlist-count");
 
-    const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    // const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+    const isLoggedIn = true;
 
     if (!isLoggedIn) {
         authView.classList.remove("Hidden");
@@ -36,10 +37,10 @@ function renderWishlist() {
      
         wishlistGrid.innerHTML = wishlist.map(product => `
             <div class="product-card">
-                <img src="${product.image}" alt="${product.name}">
-                <h4>${product.name}</h4>
+                <img src="${product.img}" alt="${product.id}">
+                <h4>${product.id}</h4>
                 <p>${product.price} EGP</p>
-                <button class="btn-remove" onclick="removeFromWishlist(${product.id})">Remove</button>
+                <button class="btn-remove" onclick="removeFromWishlist('${product.id}')">Remove</button>
             </div>
         `).join("");
     }
