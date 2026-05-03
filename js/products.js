@@ -6,7 +6,7 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const noResults = document.getElementById("no-results");
 
-const products = [
+const PRODUCTS = [
   { id: "SmartWatch", cat: "Watches", price: 200, img: "../images/products/watch.png" },
   { id: "Phone Stand", cat: "Phone Accessories", price: 22, img: "../images/products/phone-stand.png" },
   
@@ -16,6 +16,7 @@ const products = [
   { id: "Samsung Galaxy S25", cat: "Phones", price: 899, img: "../images/products/1.png" },
   { id: "Apple iPhone 16 Pro Max", cat: "Phones", price: 1250, img: "../images/products/4.png" },
   { id: "Apple iPhone 17 Pro Max", cat: "Phones", price: 1450, img: "../images/products/2.png" },
+
   { id: "Phone Case", cat: "Phone Accessories", price: 15, img: "../images/products/phone-case.png" },
   { id: "Charging Cable", cat: "Phone Accessories", price: 12, img: "../images/products/charging-cable.png" },
 
@@ -39,107 +40,113 @@ const products = [
 
 const productsPerPage = 6;
 let currentPage = 1;
-if (gridBtn) gridBtn.disabled = 1;
-let filteredData = [...products]; 
+let filteredData = [...PRODUCTS];
+
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-window.products = products;
+
+window.PRODUCTS = PRODUCTS;
+window.products = PRODUCTS;
 window.filteredData = filteredData;
-window.render = render;
 window.currentPage = currentPage;
+window.render = render;
 
 function render() {
   filteredData = window.filteredData;
   currentPage = window.currentPage;
-  const totalPages = Math.max(1, Math.ceil(filteredData.length / productsPerPage)); 
-  if (currentPage > totalPages) currentPage = totalPages;
-  const start = (currentPage - 1) * productsPerPage; 
-  const slice = filteredData.slice(start, start + productsPerPage); 
 
-  grid.innerHTML = ""; 
-  noResults.classList.toggle("hidden", filteredData.length > 0); 
+  const totalPages = Math.max(1, Math.ceil(filteredData.length / productsPerPage));
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  const start = (currentPage - 1) * productsPerPage;
+  const slice = filteredData.slice(start, start + productsPerPage);
+
+  grid.innerHTML = "";
+  noResults.classList.toggle("hidden", filteredData.length > 0);
+
   slice.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = "product-card";
-    card.style.animationDelay = `${i * 100}ms`; 
+    card.style.animationDelay = `${i * 100}ms`;
+
     card.innerHTML = `
       <div class="card-info">
-        <div class="card-cat addToWishlist">${p.cat}</div>
-        <div class="card-img addToWishlist"><img src="${p.img}"></div>
-        <div class="card-name addToWishlist">${p.id}</div>
-        <div class="card-price addToWishlist">$${p.price}</div>
-        <button class="add-to-cart-btn" data-id="${p.id}">Add to Cart</button>
-        <button class="wishlist-btn addToWishlist" data-id="${p.id}">🤍</button>
-      </div>`;
-    const image = card.querySelector('.card-img');
-    const addToCartBtn = card.querySelector('.add-to-cart-btn');
-    const wishlistBtn = card.querySelector('.wishlist-btn');
-    addToCartBtn.onclick = () =>{ 
-      if (cart.some(item => item.id == p.id)){
-        addToCartBtn.innerHTML = "Add to Cart";
-        cart = cart.filter(item => item.id != p.id);
-        localStorage.setItem("cart", JSON.stringify(cart));
+        <div class="card-cat">${p.cat}</div>
+        <div class="card-img"><img src="${p.img}"></div>
+        <div class="card-name">${p.id}</div>
+        <div class="card-price">$${p.price}</div>
+        <button class="add-to-cart-btn">${cart.some(item => item.id === p.id) ? "Remove from Cart" : "Add to Cart"}</button>
+        <button class="wishlist-btn">${wishlist.some(item => item.id === p.id) ? "❤️" : "🤍"}</button>
+      </div>
+    `;
+
+    const image = card.querySelector(".card-img");
+    const addToCartBtn = card.querySelector(".add-to-cart-btn");
+    const wishlistBtn = card.querySelector(".wishlist-btn");
+
+    addToCartBtn.onclick = () => {
+      if (cart.some(item => item.id === p.id)) {
+        cart = cart.filter(item => item.id !== p.id);
+      } else {
+        cart.push(p);
       }
-      else{
-      cart.push(p);
       localStorage.setItem("cart", JSON.stringify(cart));
-      addToCartBtn.innerHTML = `Remove from Cart`
-      }
-    };
-    wishlistBtn.onclick = () =>{ 
-      if (wishlist.some(item => item.id === p.id)) {
-        wishlistBtn.innerHTML = `🤍`;
-        wishlist = wishlist.filter(item => item.id !== p.id);
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    }
-    else{
-      wishlist.push(p);
-      localStorage.setItem("wishlist", JSON.stringify(wishlist)); 
-      wishlistBtn.innerHTML = `❤️`;
-    }
+      render();
     };
 
-    if (cart.some(item => item.id === p.id)) {
-      addToCartBtn.innerHTML = `Remove from Cart`;
-    }
-    if (wishlist.some(item => item.id === p.id)) {
-      wishlistBtn.innerHTML = `❤️`;
-    }
-    image.onclick = () => {                                          
+    wishlistBtn.onclick = () => {
+      if (wishlist.some(item => item.id === p.id)) {
+        wishlist = wishlist.filter(item => item.id !== p.id);
+      } else {
+        wishlist.push(p);
+      }
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      render();
+    };
+
+    image.onclick = () => {
       window.location.href = `product-details.html?id=${p.id}`;
     };
-    grid.appendChild(card); 
+
+    grid.appendChild(card);
   });
 
-  
   pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
   prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = currentPage === totalPages; 
+  nextBtn.disabled = currentPage === totalPages;
 }
-
 
 function changePage(dir) {
-  const totalPages = Math.ceil(filteredData.length / productsPerPage);
-  window.currentPage = Math.min(Math.max(1, window.currentPage + dir), totalPages); 
+  const totalPages = Math.ceil(window.filteredData.length / productsPerPage);
+  window.currentPage = Math.min(Math.max(1, window.currentPage + dir), totalPages);
+  render();
 }
 
-
-function toggleView(){
-  if(event.target.id === "grid-btn"){
+function toggleView(e) {
+  if (e.target.id === "grid-btn") {
     grid.classList.add("view-grid");
     grid.classList.remove("view-list");
-    gridBtn.disabled = 1;
-    listBtn.disabled = 0;
-    render();
-  }
-  else{
-    grid.classList.add("view-list")
+    gridBtn.disabled = true;
+    listBtn.disabled = false;
+  } else {
+    grid.classList.add("view-list");
     grid.classList.remove("view-grid");
-    listBtn.disabled = 1;
-    gridBtn.disabled = 0;
-    render();
+    listBtn.disabled = true;
+    gridBtn.disabled = false;
   }
 }
+
+function filterByCategory(category) {
+  if (category === "All") {
+    window.filteredData = [...PRODUCTS];
+  } else {
+    window.filteredData = PRODUCTS.filter(p => p.cat === category);
+  }
+
+  window.currentPage = 1;
+  render();
+}
+
 if (grid && gridBtn && listBtn && pageIndicator && prevBtn && nextBtn && noResults) {
   render();
 }
