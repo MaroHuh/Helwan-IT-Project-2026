@@ -240,11 +240,6 @@
   }
 }
 
-/* ==========================================================================
-   Cart - Design system alignment
-   Supports current checkout markup and cart page selectors
-   ========================================================================== */
-
 .checkout,
 #cart-wrapper {
   width: 100%;
