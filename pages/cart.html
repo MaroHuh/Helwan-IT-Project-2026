@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="../css/cart.css" />
   </head>
   <body>
-    <!-- Navbar -->
+   
     <header id="navbar"></header>
 
-    <!-- Main Content -->
+  
     <section class="checkout">
-      <form class="myform">
+      <form action="">
         <div class="container">
           <div class="ordersummary">
             <h1>order summary</h1>
@@ -47,22 +47,21 @@
             <div class="address">
               <h2>Delivery Address</h2>
               <div class="inputs">
-                <label>Email</label>
-                <input type="email" placeholder="enter your Email" />
-                <span class="hidden">Invalid Email</span>
+                <label for="email">Email</label>
+                <input type="email" placeholder="enter your Email" required />
 
-                <label>Name</label>
-                <input type="text" placeholder="enter your Name" />
-                <span class="hidden">Invalid Name</span>
+                <label for="email">Name</label>
+                <input type="text" placeholder="enter your Name" required />
 
-                <label>Address</label>
-                <input type="text" placeholder="enter your Address" />
-                <span class="hidden">Invalid Address</span>
+                <label for="email">Address</label>
+                <input type="text" placeholder="enter your Address" required />
 
-                <label>Phone</label>
-                <input type="number" placeholder="enter your Phone Number" />
-                <span class="hidden">Invalid Phone Number</span>
-                <span class="hidden" id="form-status">Success!</span>
+                <label for="email">Phone</label>
+                <input
+                  type="number"
+                  placeholder="enter your Phone Number"
+                  required
+                />
               </div>
             </div>
           </div>
@@ -70,9 +69,8 @@
       </form>
     </section>
 
-    <!-- Footer -->
+  
     <footer id="footer"></footer>
-
     <script src="../js/main.js"></script>
     <script src="../js/cart.js"></script>
   </body>
