@@ -6,7 +6,7 @@ const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
 const noResults = document.getElementById("no-results");
 
-const PRODUCTS = [
+const products = [
   { id: "SmartWatch", cat: "Watches", price: 200, img: "../images/products/watch.png" },
   { id: "Phone Stand", cat: "Phone Accessories", price: 22, img: "../images/products/phone-stand.png" },
   
@@ -36,10 +36,10 @@ const PRODUCTS = [
 const productsPerPage = 6;
 let currentPage = 1;
 if (gridBtn) gridBtn.disabled = 1;
-let filteredData = [...PRODUCTS]; //filtered data variable to not manipulate the original list
+let filteredData = [...products]; //filtered data variable to not manipulate the original list
 let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-window.PRODUCTS = PRODUCTS;
+window.products = products;
 window.filteredData = filteredData;
 window.render = render;
 window.currentPage = currentPage;
