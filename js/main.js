@@ -36,7 +36,7 @@ if (navbar) {
   </a>
   <div>
     <ul>
-      <li><a href="../pages/home.html">Home</a></li>
+      <li><a href="../pages/index.html">Home</a></li>
       <li><a href="../pages/shop.html">Shop</a></li>
       <li><a href="../pages/cart.html">Cart</a></li>
       <li><a href="../pages/login.html">Login</a></li>
