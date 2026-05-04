@@ -22,19 +22,20 @@ function renderCart() {
         const itemCart = document.createElement("div");
         itemCart.className = "item-cart";
         itemCart.innerHTML = `
-            <div class="image_name">
-                <img src="${p.img}" width="200"/>
+            <div class="item-cart-info">
+                <img src="${p.img}" class="item-cart-img" width="200"/>
                 <div class="content">
-                    <h4>${p.id}</h4>
-                    <p class="price_cart">$${p.price}</p>
+                    <h4 class="item-cart-title">${p.id}</h4>
+                    <p class="item-cart-price">$${p.price}</p>
                     <div class="quantity_control">
-                        <button class="decrease_quantity" data-index="${i}">-</button>
-                        <span class="quantity">${p.quantity}</span>
-                        <button class="increase_quantity" data-index="${i}">+</button>
+                        <button class="decrease_quantity quantity-btn" data-index="${i}">-</button>
+                        <span class="item-cart-quantity">${p.quantity}</span>
+                        <button class="increase_quantity quantity-btn" data-index="${i}">+</button>
+                        <button class="delete_item remove-btn" data-index="${i}">delete</button>
                     </div>
                 </div>
             </div>
-            <button class="delete_item" data-index="${i}">delete</button>
+            
         `;
         items.insertBefore(itemCart, items.querySelector(".bottom_summary"));
     });
