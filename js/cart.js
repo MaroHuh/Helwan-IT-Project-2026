@@ -2,7 +2,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 cart = cart.map(p => ({ ...p, quantity: p.quantity || 1 }));
 
-const items = document.getElementById("items");
+const items = document.getElementById("items-list");
 
 function updateTotals() {
     let subtotal = 0;

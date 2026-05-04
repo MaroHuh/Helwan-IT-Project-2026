@@ -63,7 +63,14 @@
 #items {
   padding: 22px 24px 24px;
 }
-
+#items-list{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  max-height: 250px;
+  gap: 20%;
+  padding: 10px;
+  overflow-x: scroll;
+}
 .bottom_summary {
   display: grid;
   gap: 14px;
