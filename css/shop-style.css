@@ -495,54 +495,6 @@
   box-shadow: var(--primary-shadow-hover);
 }
 
-
-.quantity-btn {
-  width: 2rem;
-  min-width: 2rem;
-  height: 2rem;
-  min-height: 2rem;
-  border-radius: var(--radius-pill);
-  background: var(--surface-muted);
-  color: var(--text);
-  padding: 0;
-  box-shadow: none;
-}
-
-.quantity-btn:hover {
-  background: var(--color-brand-soft);
-  color: var(--color-brand-strong);
-  transform: none;
-}
-
-.remove-btn {
-  border-color: var(--danger-border-soft);
-  background: var(--color-danger-soft);
-  color: var(--color-danger);
-  white-space: nowrap;
-}
-
-.remove-btn:hover {
-  border-color: var(--danger-border-strong);
-  background: var(--danger-hover);
-  transform: translateY(-1px);
-}
-
-#checkout-btn {
-  width: 100%;
-  min-height: 3.35rem;
-  border-radius: var(--radius-md);
-  background: linear-gradient(180deg, var(--color-brand), var(--color-brand-strong));
-  color: var(--button-text-on-primary);
-  font-weight: 850;
-  box-shadow: var(--primary-shadow);
-}
-
-#checkout-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--primary-shadow-hover);
-}
-
-
 @media (max-width: 700px) {
    #shop-layout {
     flex-direction: column;
@@ -566,7 +518,7 @@
   }
 
   #products-grid {
-    min-height: 700px;
+    min-height: 400px;
     margin-left: 15px;
   }
 
@@ -574,13 +526,15 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     overflow-y: scroll;
-    max-height: 200px;
+    max-height: 10px;
   }
-
+  .view-grid .card-img{
+    width: 100px;
+  }
   .view-list {
     min-width: 80%;
-    max-height: 200px;
     overflow-y: scroll;
+    max-height: 50px;
   }
 
   .card-img {
