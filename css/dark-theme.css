@@ -659,6 +659,10 @@ section.main-banner img,
 }
 
 
+#items-list{
+  background-color: var(--bg);
+}
+
 @media (max-width: 900px) {
   #navbar,
   #Navbar {
@@ -756,8 +760,8 @@ section.main-banner img,
     margin-inline: -0.25rem !important;
     border-radius: 1.2rem !important;
   }
-
-
+  #products-grid.view-grid,
+  .view-grid,
   #Wishlist-grid,
   .View-grid,
   #Recommendations-grid {
