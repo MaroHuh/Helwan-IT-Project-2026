@@ -122,8 +122,8 @@ function changePage(dir) {
   render();
 }
 
-function toggleView(e) {
-  if (e.target.id === "grid-btn") {
+function toggleView() {
+  if (event.target.id === "grid-btn") {
     grid.classList.add("view-grid");
     grid.classList.remove("view-list");
     gridBtn.disabled = true;
