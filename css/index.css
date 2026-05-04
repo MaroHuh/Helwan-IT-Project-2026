@@ -181,7 +181,7 @@ section.main-banner:hover img {
 .category-item > div,
 .controller-container,
 .laptops-container,
-.wearables-container,
+.phone-container,
 .cameras-container,
 .accessories-container {
   width: clamp(96px, 11vw, 136px);
@@ -527,7 +527,7 @@ footer {
   .category-item > div,
   .controller-container,
   .laptops-container,
-  .wearables-container,
+  .phone-container,
   .cameras-container,
   .accessories-container {
     width: 118px;
@@ -545,3 +545,4 @@ footer {
     margin: 0 16px 16px;
   }
 }
+
